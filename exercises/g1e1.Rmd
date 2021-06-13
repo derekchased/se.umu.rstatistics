@@ -1,0 +1,66 @@
+---
+title: "Group 1, Exercise 1"
+output: html_document
+---
+
+# Group Members
+1. Derek Yadgaroff
+2. 
+3. 
+4. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Tasks
+
+1. Import the data file df.gr1 into R.
+2. Describe the data as it is using descriptive statistics measures and graphics. Observe that you are not supposed to perform any statistical analysis using test etc.
+3. You may detect that there are missing data and suspect values. Discuss how you would like to clean the data and perform the cleaning as a preparation for a future statistical analysis.
+4. Weight is not in the file. Calculate it using BMI and height (hint BMI = weight/(height/100)2).
+5. Describe the new cleaned data in a similar way as above.
+6. Look at the histograms of shoesize, income, and age. How do they differ? How would you charac- terize them?
+  1. Is there a relationship between height and shoe size?
+  2. Is there a relationship between alcohol and depression
+7. Is there a relationship between angina, age and county? Start by looking at pairwise relationship between the variables.
+8. Prepare a presentation e.g. using powerpoint.
+
+
+## Import Data
+Use the read.csv function to load a csv file. This opens the file, loads the contents, and stores it as a data frame object
+```{r}
+dfgr1 <- read.csv("../data/df.gr1.csv")
+```
+
+## Describe Data
+Explore the data using descriptive statistics
+
+First, let's take a summary of the data. We don't print the variable directly because rmarkdown will show all rows (thousands) rather than giving a preview.
+```{r}
+summary(dfgr1)
+```
+
+Next, let's convert the dataframe object to a tibble, and take the same summary. This is a good way to compare the tibble package to the built in R data object. Here we can print the variable since it is now a tibble instead of a dataframe and will reduce to a preview.
+```{r}
+library(tibble)
+dfgr1tibble <- as_tibble(dfgr1)
+dfgr1tibble
+summary(dfgr1tibble)
+```
+
+
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
